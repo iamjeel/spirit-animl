@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  transition: opacity 1s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction while fading out */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.result {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.result.fade-in {
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+select {
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+.result-animal {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin: 20px 0;
+}
+
+.result button {
+  background-color: #28a745;
+}
+
+.result button:hover {
+  background-color: #218838;
+}
+
+.result button:active {
+  transform: scale(0.98);
+}
+
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  select, button {
+    font-size: 0.9rem;
+  }
+
+  .result-animal {
+    font-size: 1.5rem;
   }
 }
